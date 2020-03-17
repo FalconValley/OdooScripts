@@ -51,7 +51,7 @@ sudo dpkg-reconfigure locales
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/pgdg.list
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/pgdg.list
 cp pgdg.list /etc/apt/sources.list.d
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
@@ -142,13 +142,13 @@ chown odoo:odoo /var/log/odoo/odoo-server.log
 chown odoo:odoo /etc/odoo/odoo.conf
 chown -R odoo:odoo /odoo
 echo "-------------------------------odoo service----------------------------"
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/odoo.service
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo.service
 cp odoo.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable odoo
 sudo systemctl start odoo
 echo "----------------------------NGINX-------------------------------"
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/nginx.sh
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
 bash nginx.sh
 echo "---------------------------webmin--------------------------------"
 apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
