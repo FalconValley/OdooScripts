@@ -48,4 +48,24 @@ $ sudo apt-get install certbot python-certbot-nginx
 ############################################
 Edit odoo config file to add the append the extra file 
 $  nano /etc/odoo/odoo.conf
+if enrprise use
+addons_path = /odoo/odoo/addons,/odoo/addons,/odoo/extra,/odoo/enterprise
+if comunity use
+addons_path = /odoo/odoo/addons,/odoo/addons,/odoo/extra
+
+Then Update The Proxy_Mode = true
+
+###############################################
+Now to set database tune go to the   https://pgtune.leopard.in.ua/#/
+and provide site with your server data and press genrate and copy your configuration and update your postgre config
+$ nano /etc/postgresql/12/main/postgresql.conf
+under this line # Add settings for extensions here you can pase your configuration and save it
+then restart postgres service and odoo
+$ service postgresql restart
+$ service odoo restart
+
+To see Odoo log from trminal use
+$ tail -f /var/log/odoo/odoo-server.log
+
+
 
