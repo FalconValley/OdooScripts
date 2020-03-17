@@ -1,3 +1,8 @@
+
+Open Command or Window PowerShell and tryp
+
+ssh root@your server ip 
+
 Ubuntu change hostname command
 Type the following command to edit /etc/hostname using nano or vi text editor:
 sudo nano /etc/hostname
