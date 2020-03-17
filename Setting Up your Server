@@ -13,6 +13,8 @@ Replace any occurrence of the existing computer name with your new one.
 Reboot the system to changes take effect:
 $ sudo reboot
 #####################################################3
+$ sudo adduser odoo
+$ sudo reboot
 
 Run All Scripts in file odoo_pro18.sh
 to run thes script you can use this code
