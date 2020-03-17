@@ -1,13 +1,13 @@
 #!/bin/bash
 # to run the script "sudo /bin/sh odoo_pro.sh"
 ################################################################################
-# Script for preparing Odoo production server platform on Ubuntu 14.04, 15.04 and 16.04 (could be used for other version too)
-# Author:     Mahmoud Abdel Latif
-# Mobile No:  +201002688172
-# Email:      Mah008@me.com
-# Website:    http://www.mah007.com
+# Script for preparing Odoo production server platform on Ubuntu 14.04, 15.04 , 16.04 and 18.04 (could be used for other version too)
+# Author:     Haitham Sakr
+# Mobile No:  +201113105777
+# Email:      info@falcon-v.com
+# Website:    http://www.Falcon-v.com
 #-------------------------------------------------------------------------------
-# This script will make ur server ready for installing ODOO from 8 to 11
+# This script will make ur server ready for installing ODOO from 8 to 13
 #-------------------------------------------------------------------------------
 # Make a new file:
 # sudo nano odoo_pro.sh
@@ -51,7 +51,7 @@ sudo dpkg-reconfigure locales
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
-wget https://raw.githubusercontent.com/mah007/OdooScript/12.0/pgdg.list
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/pgdg.list
 cp pgdg.list /etc/apt/sources.list.d
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
@@ -142,13 +142,13 @@ chown odoo:odoo /var/log/odoo/odoo-server.log
 chown odoo:odoo /etc/odoo/odoo.conf
 chown -R odoo:odoo /odoo
 echo "-------------------------------odoo service----------------------------"
-wget https://raw.githubusercontent.com/mah007/OdooScript/12.0/odoo.service
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/odoo.service
 cp odoo.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable odoo
 sudo systemctl start odoo
 echo "----------------------------NGINX-------------------------------"
-wget https://raw.githubusercontent.com/mah007/OdooScript/12.0/nginx.sh
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/nginx.sh
 bash nginx.sh
 echo "---------------------------webmin--------------------------------"
 apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
