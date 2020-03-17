@@ -20,7 +20,7 @@ $ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo_pro18.
 $ chmod +x odoo_pro18.sh
 $ ./odoo_pro18.sh
 
-Then edit the Ngnix file to change your domain in Server Name like FalconOdoo13.gotdns.com
+Then edit the Ngnix file to change your domain in Server Name like  FalconOdoo13.gotdns.com *.falconodoo13.gotdns.com;
 $ nano /etc/nginx/sites-available/odoo.conf
 To test ngnix use
 $ nginx -t
