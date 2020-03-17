@@ -13,7 +13,7 @@
 # sudo nano odoo_pro.sh
 # Place this content in it and then make the file executable:
 # sudo chmod +x odoo_pro.sh
-# git clone --depth 1 --branch 10.0 https://www.gitlab.com/mah007/odoo .
+# git clone --depth 1 --branch 10.0 https://www.gitlab.com/FalconValley/odoo .
 # Execute the script to install Odoo:
 # ./odoo-developing
 ################################################################################
@@ -152,8 +152,8 @@ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13.0/nginx.sh
 bash nginx.sh
 echo "---------------------------webmin--------------------------------"
 apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
-wget http://prdownloads.sourceforge.net/webadmin/webmin_1.930_all.deb
-sudo gdebi webmin_1.930_all.deb
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.941_all.deb
+sudo gdebi webmin_1.941_all.deb
 
 echo "-----------------------------------------------------------"
 echo "Done! The Odoo production platform is ready:"
