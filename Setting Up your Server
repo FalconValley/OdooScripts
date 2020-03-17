@@ -13,3 +13,39 @@ Replace any occurrence of the existing computer name with your new one.
 Reboot the system to changes take effect:
 sudo reboot
 #####################################################3
+
+Run All Scripts in file odoo_pro18.sh
+
+Then edit the Ngnix file to change your domain in Server Name like FalconOdoo13.gotdns.com
+$ nano /etc/nginx/sites-available/odoo.conf
+To test ngnix use
+$ nginx -t
+Restart ngnix
+$ service nginx restart
+#################################
+$ su odoo
+$ cd /odoo
+$ git clone --branch 13.0 --depth 1 https://github.com/odoo/odoo .
+if u need to clone the entrprise
+$ git clone --branch 13.0 --depth 1 https://github.com/odoo/entrprise .
+Add Extra File to Use Extra Adoon When u cd odoo
+$ mkdir extra
+$ Exit
+$ service odoo restart
+#####################################
+SSL Your Site 
+go to the  https://certbot.eff.org/
+and select what do u need from My HTTP website is running
+u will got this commands
+
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install certbot python-certbot-nginx
+
+############################################
+Edit odoo config file to add the append the extra file 
+$  nano /etc/odoo/odoo.conf
+
