@@ -76,4 +76,8 @@ To see Odoo log from trminal use
 $ tail -f /var/log/odoo/odoo-server.log
 
 
+to fix error in webmin
+$ sudo apt-get --fix-broken install
+
+
 
