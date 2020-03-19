@@ -42,7 +42,7 @@ $ service odoo restart
 #####################################
 SSL Your Site 
 go to the  https://certbot.eff.org/
-and select what do u need from My HTTP website is running
+and select what do u need from My HTTP website is running chose ngnix and your oreting system
 u will got this commands
 
 $ sudo apt-get update
@@ -51,6 +51,7 @@ $ sudo add-apt-repository universe
 $ sudo add-apt-repository ppa:certbot/certbot
 $ sudo apt-get update
 $ sudo apt-get install certbot python-certbot-nginx
+$ sudo certbot --nginx
 
 ############################################
 Edit odoo config file to add the append the extra file 
