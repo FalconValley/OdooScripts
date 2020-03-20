@@ -82,5 +82,11 @@ $ sudo apt-get --fix-broken install
 to add filter in database to filter by domain or subdomain name 
 dbfilter = ^%h$ 
 
+Installing Virtualmin
+
+$ curl -O http://software.virtualmin.com/gpl/scripts/install.sh
+$ sudo chmod +x install.sh
+$ sudo ./install.sh
+
 
 
