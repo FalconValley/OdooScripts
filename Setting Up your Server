@@ -82,8 +82,13 @@ $ sudo apt-get --fix-broken install
 to add filter in database to filter by domain or subdomain name 
 dbfilter = ^%h$ 
 
-Installing Virtualmin
 
+
+echo "---------------------------webmin--------------------------------"
+apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.941_all.deb
+sudo gdebi webmin_1.941_all.deb
+echo "---------------------------Installing Virtualmin--------------------------------"
 $ curl -O http://software.virtualmin.com/gpl/scripts/install.sh
 $ sudo chmod +x install.sh
 $ sudo ./install.sh
