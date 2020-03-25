@@ -37,22 +37,7 @@ $ chmod +x odoo_pro18.sh
 $ ./odoo_pro18.sh
 
 
-##############################################
-edit proxy using appacth from webmin panel  its good
-From Server Configuration tab and select edit proy Websity then select yes and writy your ip with port like 192.168.181.1:8069
- ###############################################
-if u need to use ngnix  proxy
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
-bash nginx.sh
 
-
-Then edit the Ngnix file to change your domain in Server Name like  FalconOdoo13.gotdns.com *.falconodoo13.gotdns.com;
-$ nano /etc/nginx/sites-available/odoo.conf
-To test ngnix use
-$ nginx -t
-Restart ngnix
-$ service nginx restart
-#################################
 
 $ su odoo
 $ cd /odoo
@@ -98,6 +83,24 @@ $ sudo certbot --nginx
 
 
 ############################################
+
+  after create your virtual server 
+edit proxy using appacth from webmin panel  its good
+From Server Configuration tab and select edit proy Websity then select yes and writy your ip with port like 192.168.181.1:8069
+ ###############################################
+if u need to use ngnix  proxy
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
+bash nginx.sh
+
+
+Then edit the Ngnix file to change your domain in Server Name like  FalconOdoo13.gotdns.com *.falconodoo13.gotdns.com;
+$ nano /etc/nginx/sites-available/odoo.conf
+To test ngnix use
+$ nginx -t
+Restart ngnix
+$ service nginx restart
+#################################
+
 Edit odoo config file to add the append the extra file 
 $  nano /etc/odoo/odoo.conf
 if enrprise use
