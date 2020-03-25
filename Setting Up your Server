@@ -93,13 +93,11 @@ $ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
 
 
 echo "---------------------------webmin--------------------------------"
-apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
-wget http://prdownloads.sourceforge.net/webadmin/webmin_1.941_all.deb
-sudo gdebi webmin_1.941_all.deb
 echo "---------------------------Installing Virtualmin--------------------------------"
-$ curl -O http://software.virtualmin.com/gpl/scripts/install.sh
-$ sudo chmod +x install.sh
-$ sudo ./install.sh
+
+# wget -O install.sh http://software.virtualmin.com/gpl/scripts/install.sh
+# /bin/sh install.sh
+
 
 
 
