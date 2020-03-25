@@ -147,10 +147,6 @@ cp odoo.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable odoo
 sudo systemctl start odoo
-echo "----------------------------NGINX-------------------------------"
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
-bash nginx.sh
-
 
 echo "-----------------------------------------------------------"
 echo "Done! The Odoo production platform is ready:"
