@@ -7,11 +7,8 @@ $ ssh root@your server ip
 
 echo "---------------------------webmin--------------------------------"
 echo "---------------------------Installing Virtualmin--------------------------------"
-# apt install ifupdown
-# wget -O install.sh http://software.virtualmin.com/gpl/scripts/install.sh
-# /bin/sh install.sh
-
-
+# sudo apt-get update
+# sudo apt-get dist-upgrade -y
 
 Ubuntu change hostname command  if you need 
 Type the following command to edit /etc/hostname using nano or vi text editor:
@@ -22,6 +19,17 @@ $ sudo nano /etc/hosts
 Replace any occurrence of the existing computer name with your new one.
 Reboot the system to changes take effect:
 $ sudo reboot
+
+# wget https://software.virtualmin.com/gpl/scripts/install.sh
+
+# /bin/sh install.sh
+
+if install with error run 
+# apt install ifupdown
+# /bin/sh install.sh
+# sudo /bin/sh ./install.sh
+
+
 #####################################################
 
 
