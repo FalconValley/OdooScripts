@@ -7,7 +7,7 @@ $ ssh root@your server ip
 
 echo "---------------------------webmin--------------------------------"
 echo "---------------------------Installing Virtualmin--------------------------------"
-
+# apt install ifupdown
 # wget -O install.sh http://software.virtualmin.com/gpl/scripts/install.sh
 # /bin/sh install.sh
 
