@@ -64,7 +64,7 @@ select yes for Redirect http to https by defualt and save
 then from virtual min virtual servers add new virtual server  for ech domain and ech sub domain
 by adding your domain name and pass and enable setup ssl website too 
 then press create server 
-now go to lets encrypt to request certifaicate
+now go to lets encrypt to request certifaicate  from Virtualmin select Server Configuration and ssl
 
 
 or use the next 
