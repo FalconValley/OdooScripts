@@ -155,7 +155,8 @@ if odoo no runing try to add odoo user to postres
 $ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
 
 
-
+to test odoo status
+$ sudo systemctl status odoo
 
 
 
