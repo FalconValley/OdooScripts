@@ -1,7 +1,17 @@
 
 Open Command or Window PowerShell and tryp
 
+or use any ssh program like BvSshClient
+
 $ ssh root@your server ip 
+
+echo "---------------------------webmin--------------------------------"
+echo "---------------------------Installing Virtualmin--------------------------------"
+
+# wget -O install.sh http://software.virtualmin.com/gpl/scripts/install.sh
+# /bin/sh install.sh
+
+
 
 Ubuntu change hostname command
 Type the following command to edit /etc/hostname using nano or vi text editor:
@@ -92,11 +102,7 @@ $ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
 
 
 
-echo "---------------------------webmin--------------------------------"
-echo "---------------------------Installing Virtualmin--------------------------------"
 
-# wget -O install.sh http://software.virtualmin.com/gpl/scripts/install.sh
-# /bin/sh install.sh
 
 
 
