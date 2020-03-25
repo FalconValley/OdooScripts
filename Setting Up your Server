@@ -13,7 +13,7 @@ echo "---------------------------Installing Virtualmin--------------------------
 
 
 
-Ubuntu change hostname command
+Ubuntu change hostname command  if you need 
 Type the following command to edit /etc/hostname using nano or vi text editor:
 $ sudo nano /etc/hostname
 Delete the old name and setup new name.
@@ -22,15 +22,29 @@ $ sudo nano /etc/hosts
 Replace any occurrence of the existing computer name with your new one.
 Reboot the system to changes take effect:
 $ sudo reboot
-#####################################################3
+#####################################################
+
+
+
 $ sudo adduser odoo
 $ sudo reboot
 
-Run All Scripts in file odoo_pro18.sh
+Run All Scripts in file odoo_pro18.sh  or use installation wy like install odoolinux in my github 
+
 to run thes script you can use this code
 $ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo_pro18.sh
 $ chmod +x odoo_pro18.sh
 $ ./odoo_pro18.sh
+
+
+##############################################
+edit proxy using appacth from webmin panel  its good
+From Server Configuration tab and select edit proy Websity then select yes and writy your ip with port like 192.168.181.1:8069
+ ###############################################
+if u need to use ngnix  proxy
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
+bash nginx.sh
+
 
 Then edit the Ngnix file to change your domain in Server Name like  FalconOdoo13.gotdns.com *.falconodoo13.gotdns.com;
 $ nano /etc/nginx/sites-available/odoo.conf
@@ -39,6 +53,7 @@ $ nginx -t
 Restart ngnix
 $ service nginx restart
 #################################
+
 $ su odoo
 $ cd /odoo
 $ git clone --branch 13.0 --depth 1 https://github.com/odoo/odoo .
@@ -50,11 +65,29 @@ $ mkdir extra
 $ exit
 $ service odoo restart
 #####################################
-SSL Your Site 
+
+
+Secure Domain  
+
+use the best way from webmain lits encrypt using Virtualmin
+
+select Virtualmin Tab
+select System Setting Tab
+select Virtualmin Configuration 
+click on ssl setting
+select yes for Redirect http to https by defualt and save
+then from virtual min virtual servers add new virtual server  for ech domain and ech sub domain
+by adding your domain name and pass and enable setup ssl website too 
+then press create server 
+now go to lets encrypt to request certifaicate
+
+
+or use the next 
+
+
 go to the  https://certbot.eff.org/
 and select what do u need from My HTTP website is running chose ngnix and your oreting system
 u will got this commands
-
 $ sudo apt-get update
 $ sudo apt-get install software-properties-common
 $ sudo add-apt-repository universe
@@ -62,6 +95,7 @@ $ sudo add-apt-repository ppa:certbot/certbot
 $ sudo apt-get update
 $ sudo apt-get install certbot python-certbot-nginx
 $ sudo certbot --nginx
+
 
 ############################################
 Edit odoo config file to add the append the extra file 
@@ -81,6 +115,9 @@ under this line # Add settings for extensions here you can pase your configurati
 then restart postgres service and odoo
 $ service postgresql restart
 $ service odoo restart
+
+################################################
+
 
 To see Odoo log from trminal use
 $ tail -f /var/log/odoo/odoo-server.log
