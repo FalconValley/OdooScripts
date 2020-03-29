@@ -145,6 +145,8 @@ $ sudo apt-get --fix-broken install
 
 to add filter in database to filter by domain or subdomain name 
 dbfilter = ^%h$ 
+if you need filter to add mor than db use
+dbfilter = ^%d
 
 
 
