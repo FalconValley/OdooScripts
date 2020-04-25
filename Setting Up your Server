@@ -95,7 +95,18 @@ $ sudo apt-get update
 $ sudo apt-get install certbot python-certbot-nginx
 $ sudo certbot --nginx
 
-
+to add another domain 
+go to /etc/nginx/sites-available
+open odoo.conf and edit like next line
+# server port and name
+    server_name    falcon-valley.com *.falcon-valley.com;
+	server_name    sakrtrade.com *.sakrtrade.com;
+    server_name    geodesy-eg.com *.geodesy-eg.com;
+    server_name    binmased.com *.binmased.com;
+    server_name    falconvalley.info *.falconvalley.info;
+    server_name    falconvalley.org *.falconvalley.org;
+    
+    and then run $ sudo certbot --nginx
 ############################################
 
   after create your virtual server 
