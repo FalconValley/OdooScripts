@@ -7,27 +7,7 @@ $ ssh root@your server ip
 
 echo "https://www.digitalocean.com/community/tutorials/how-to-install-virtualmin-with-webmin-lamp-bind-and-postfix-on-ubuntu-16-04"
 echo "---------------------------Installing Virtualmin and webmin--------------------------------"
-# sudo apt-get update
-# sudo apt-get dist-upgrade -y
-# sudo apt-get upgrade
 
-# sudo nano /etc/network/interfaces.d/50-cloud-init.cfg
-replace to 
-dns-nameservers 8.8.8.8 8.8.4.4 127.0.0.1
-
-
-Ubuntu change hostname command  if you need 
-Type the following command to edit /etc/hostname using nano or vi text editor:
-$ sudo nano /etc/hostname
-Delete the old name and setup new name.
-Next Edit the /etc/hosts file:
-$ sudo nano /etc/hosts
-Replace any occurrence of the existing computer name with your new one.
-Reboot the system to changes take effect:
-$ sudo reboot
-
-
-How to install Virtualmin on Ubuntu 18.04?
 
 1) Update all of your currently installed packages to their latest available versions:
 
