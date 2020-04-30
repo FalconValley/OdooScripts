@@ -26,14 +26,46 @@ Replace any occurrence of the existing computer name with your new one.
 Reboot the system to changes take effect:
 $ sudo reboot
 
-# wget https://software.virtualmin.com/gpl/scripts/install.sh
 
-# /bin/sh install.sh
+How to install Virtualmin on Ubuntu 18.04?
 
-if install with error run 
-# apt install ifupdown
-# /bin/sh install.sh
-# sudo /bin/sh ./install.sh
+1) Update all of your currently installed packages to their latest available versions:
+
+# apt update
+
+2) Install dependencies:
+
+# apt -y install perl
+
+3) To check hostname of the server.
+
+# hostname
+
+4) Set a new hostname for the server.
+
+# hostnamectl set-hostname [hostname which you want to set]
+
+5) Download VirtualMin
+
+# wget http://software.virtualmin.com/gpl/scripts/install.sh -O /tmp/virtualmin-install.sh
+
+6) Make the script file executable
+
+# chmod +x /tmp/virtualmin-install.sh
+
+7) Install Virtualmin through script.
+
+# sh /tmp/virtualmin-install.sh
+
+8) Change Webmin's root password
+
+# /usr/share/webmin/changepass.pl /etc/webmin root [newpassword]
+
+9) Restart Webmin service 
+
+# systemctl restart webmin
+
+Get in touch with us for your hosting queries: 
 
 
 #####################################################
