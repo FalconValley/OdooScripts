@@ -5,7 +5,18 @@ or use any ssh program like BvSshClient
 
 $ ssh root@your server ip 
 
-echo "https://www.digitalocean.com/community/tutorials/how-to-install-virtualmin-with-webmin-lamp-bind-and-postfix-on-ubuntu-16-04"
+# Update Server
+#--------------------------------------------------
+echo -e "\n---- Update Server ----"
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt -y install vim bash-completion wget
+apt install -y zip
+$ sudo adduser odoo
+sudo reboot
+
+
+ 
 echo "---------------------------Installing Virtualmin and webmin--------------------------------"
 
 
@@ -50,11 +61,7 @@ Get in touch with us for your hosting queries:
 
 #####################################################
 
-
-
-$ sudo adduser odoo
-$ sudo reboot
-
+ 
 Run All Scripts in file odoo_pro18.sh  or use installation wy like install odoolinux in my github 
 
 to run thes script you can use this code
@@ -77,32 +84,6 @@ $ exit
 $ service odoo restart
 #####################################
 
-
-Secure Domain  
-
-use the best way from webmain lits encrypt using Virtualmin
-
-select Virtualmin Tab
-select System Setting Tab
-select Virtualmin Configuration 
-click on ssl setting
-select yes for Redirect http to https by defualt and save
-then from virtual min virtual servers add new virtual server  for ech domain and ech sub domain
-by adding your domain name and pass and enable setup ssl website too 
-then press create server 
-now go to lets encrypt to request certifaicate  from Virtualmin select Server Configuration and ssl
-
-
-or use the next 
-
-
-go to the  https://certbot.eff.org/
-and select what do u need from My HTTP website is running chose ngnix and your oreting system
-
-  after create your virtual server 
-edit proxy using appacth from webmin panel  its good
-From Server Configuration tab and select edit proy Websity then select yes and writy your ip with port like 192.168.181.1:8069
- ###############################################
 if u need to use ngnix  proxy
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
 bash nginx.sh
