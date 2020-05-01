@@ -43,21 +43,7 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 sudo dpkg-reconfigure locales
 
-#--------------------------------------------------
-# Install PostgreSQL Server
-#--------------------------------------------------
-sudo apt -y install vim bash-completion wget
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/pgdg.list
-cp pgdg.list /etc/apt/sources.list.d
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-
-echo -e "\n---- Install PostgreSQL Server ----"
-sudo apt-get install postgresql-12 postgresql-server-dev-12 -y
-
-echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
-sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
-
+ 
 #--------------------------------------------------
 # Install Dependencies
 #--------------------------------------------------
