@@ -48,7 +48,6 @@ sudo dpkg-reconfigure locales
 #--------------------------------------------------
 sudo apt -y install vim bash-completion wget
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/pgdg.list
-
 cp pgdg.list /etc/apt/sources.list.d
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
