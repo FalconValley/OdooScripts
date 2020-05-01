@@ -70,12 +70,12 @@ $ sudo apt -y install vim bash-completion wget
 
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
-$ echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.listcp pgdg.list /etc/apt/sources.list.d
+$ echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
 
 $ sudo apt-get update
 
 $ sudo apt-get install postgresql-12 postgresql-server-dev-12 -y
-
+or $ sudo apt-get -y install postgresql-12 postgresql-client-12
 $ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
 
 
@@ -104,18 +104,6 @@ $ exit
 $ service odoo restart
 #####################################
 
-if u need to use ngnix  proxy
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
-bash nginx.sh
-
-
-Then edit the Ngnix file to change your domain in Server Name like  FalconOdoo13.gotdns.com *.falconodoo13.gotdns.com;
-$ nano /etc/nginx/sites-available/odoo.conf
-To test ngnix use
-$ nginx -t
-Restart ngnix
-$ service nginx restart
-#################################
 
 Edit odoo config file to add the append the extra file 
 $  nano /etc/odoo/odoo.conf
@@ -124,7 +112,25 @@ addons_path = /odoo/odoo/addons,/odoo/addons,/odoo/extra,/odoo/enterprise
 if comunity use
 addons_path = /odoo/odoo/addons,/odoo/addons,/odoo/extra
 
+if u use proxy 
+
 Then Update The Proxy_Mode = true
+
+#################################
+
+if u need to use ngnix  proxy
+use this the next link or go to the ofcial site to install
+$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
+$ bash nginx.sh
+
+
+Then edit the Ngnix file to change your domain in Server Name like  FalconOdoo13.gotdns.com *.falconodoo13.gotdns.com;
+$ nano /etc/nginx/sites-available/odoo.conf
+To test ngnix use
+$ nginx -t
+Restart ngnix
+$ service nginx restart
+
 
 ###############################################
 Now to set database tune go to the   https://pgtune.leopard.in.ua/#/
@@ -149,13 +155,6 @@ to add filter in database to filter by domain or subdomain name
 dbfilter = ^%h$ 
 if you need filter to add mor than db use
 dbfilter = ^%d
-
-
-
- 
-
-
-
 
 to test odoo status
 $ sudo systemctl status odoo
