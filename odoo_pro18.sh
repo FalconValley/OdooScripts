@@ -36,12 +36,7 @@ IS_ENTERPRISE="True"
 WKHTMLTOX_X64=https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
 WKHTMLTOX_X32=https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_i386.deb
 #--------------------------------------------------
-# Update Server
-#--------------------------------------------------
-echo -e "\n---- Update Server ----"
-sudo apt-get update
-sudo apt-get upgrade -y
-apt install -y zip
+
 echo "----------------------------localization-------------------------------"
 
 export LC_ALL="en_US.UTF-8"
@@ -51,6 +46,7 @@ sudo dpkg-reconfigure locales
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
+sudo apt -y install vim bash-completion wget
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/pgdg.list
 cp pgdg.list /etc/apt/sources.list.d
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -127,10 +123,9 @@ sudo apt-get install -y libxml2-dev libxslt1-dev zlib1g-dev python3-pip python3-
 sudo -H pip install -r https://raw.githubusercontent.com/odoo/odoo/10.0/requirements.txt
 sudo apt install -y python3-asn1crypto 
 sudo apt install -y python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml
-sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/11.0/requirements.txt
-sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/12.0/requirements.txt
+
 sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/13.0/requirements.txt
-sudo -H pip3 install -r https://raw.githubusercontent.com/it-projects-llc/odoo-saas-tools/12.0/requirements.txt
+
 sudo -H pip3 install phonenumbers
 echo "---------------------------odoo directory--------------------------------"
 mkdir /odoo
