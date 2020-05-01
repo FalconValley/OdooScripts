@@ -62,15 +62,35 @@ Get in touch with us for your hosting queries:
 #####################################################
 
  
+ #--------------------------------------------------
+# Install PostgreSQL Server
+#--------------------------------------------------
+
+$ sudo apt -y install vim bash-completion wget
+
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+$ echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.listcp pgdg.list /etc/apt/sources.list.d
+
+$ sudo apt-get update
+
+$ sudo apt-get install postgresql-12 postgresql-server-dev-12 -y
+
+$ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
+
+
+#--------------------------------------------------
+
 Run All Scripts in file odoo_pro18.sh  or use installation wy like install odoolinux in my github 
 
 to run thes script you can use this code
+
 $ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo_pro18.sh
 $ chmod +x odoo_pro18.sh
 $ ./odoo_pro18.sh
 
 
-
+#--------------------------------------------------
 
 $ su odoo
 $ cd /odoo
@@ -132,11 +152,9 @@ dbfilter = ^%d
 
 
 
-echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
  
-if odoo no runing try to add odoo user to postres
 
-$ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
+
 
 
 to test odoo status
