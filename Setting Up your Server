@@ -99,9 +99,11 @@ if u need to clone the entrprise
  
 $ git clone --branch 13.0 --depth 1 https://github.com/odoo/entrprise
 Add Extra File to Use Extra Adoon When u cd odoo
+
 $ mkdir extra
+
 $ exit
-$ service odoo restart
+
 #####################################
 
 
@@ -116,6 +118,7 @@ if u use proxy
 
 Then Update The Proxy_Mode = true
 
+$ service odoo restart
 #################################
 
 if u need to use ngnix  proxy
