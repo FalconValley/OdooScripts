@@ -66,7 +66,7 @@ Get in touch with us for your hosting queries:
 # Install PostgreSQL Server
 #--------------------------------------------------
 
-$ sudo apt -y install vim bash-completion wget
+
 
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
