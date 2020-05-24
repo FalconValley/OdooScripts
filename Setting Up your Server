@@ -133,7 +133,17 @@ To test ngnix use
 $ nginx -t
 Restart ngnix
 $ service nginx restart
-
+ =======================
+ 
+ if u neet to use apche server
+ ############################
+ sudo apt install apache2
+ 
+ 
+ 
+ 
+ 
+ #######################
 
 ###############################################
 Now to set database tune go to the   https://pgtune.leopard.in.ua/#/
