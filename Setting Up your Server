@@ -138,10 +138,15 @@ $ service nginx restart
  if u neet to use apche server
  ############################
  sudo apt install apache2
+ sudo nano /etc/apache2/sites-available/amdind.net.conf
+ sudo a2enmod rewrite
+ restart apache2
+ sudo a2enmod headers
+ a2ensite amdind.net.conf
+ a2enmod proxy_http
  
  
- 
- 
+ sudo service apache2 status
  
  #######################
 
