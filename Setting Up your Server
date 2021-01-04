@@ -74,8 +74,8 @@ $ echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main
 
 $ sudo apt-get update
 
-$ sudo apt-get install postgresql-12 postgresql-server-dev-12 -y
-or $ sudo apt-get -y install postgresql-12 postgresql-client-12
+$ sudo apt-get install postgresql-13 postgresql-server-dev-13 -y
+or $ sudo apt-get -y install postgresql-12 postgresql-client-13
 $ sudo su - postgres -c "createuser -s odoo" 2> /dev/null || true
 
 
@@ -85,7 +85,7 @@ Run All Scripts in file odoo_pro18.sh  or use installation wy like install odool
 
 to run thes script you can use this code
 
-$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo_pro18.sh
+$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/14/odoo_pro18.sh
 $ chmod +x odoo_pro18.sh
 $ ./odoo_pro18.sh
 
@@ -94,10 +94,10 @@ $ ./odoo_pro18.sh
 
 $ su odoo
 $ cd /odoo
-$ git clone --branch 13.0 --depth 1 https://github.com/odoo/odoo .
+$ git clone --branch 14.0 --depth 1 https://github.com/odoo/odoo .
 if u need to clone the entrprise
  
-$ git clone --branch 13.0 --depth 1 https://github.com/odoo/entrprise
+$ git clone --branch 14.0 --depth 1 https://github.com/odoo/entrprise
 Add Extra File to Use Extra Adoon When u cd odoo
 
 $ mkdir extra
