@@ -1,5 +1,9 @@
 #!/bin/bash
 # to run the script "sudo /bin/sh odoo_pro.sh"
+#$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/InstallOdoo14.sh
+#$ chmod +x InstallOdoo14.sh
+#$ ./InstallOdoo14.sh
+
 ################################################################################
 # Script for preparing Odoo production server platform on Ubuntu 14.04, 15.04 and 16.04 (could be used for other version too)
 # Author:     Haitham Wehidy
