@@ -141,29 +141,29 @@ sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/14.0/require
 sudo -H pip3 install -r https://raw.githubusercontent.com/it-projects-llc/odoo-saas-tools/12.0/requirements.txt
 sudo -H pip3 install phonenumbers
 echo "---------------------------odoo directory--------------------------------"
-mkdir /odoo
-mkdir /etc/odoo
-mkdir /var/log/odoo
-touch /etc/odoo/odoo.conf
-touch /var/log/odoo/odoo-server.log
-chown odoo:odoo /var/log/odoo/odoo-server.log
-chown odoo:odoo /etc/odoo/odoo.conf
-cd /odoo
+mkdir /odoo14
+mkdir /etc/odoo14
+mkdir /var/log/odoo14
+touch /etc/odoo14/odoo.conf
+touch /var/log/odoo14/odoo-server.log
+chown odoo:odoo /var/log/odoo14/odoo-server.log
+chown odoo:odoo /etc/odoo14/odoo.conf
+cd /odoo14
 
 sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo 
 cd /
 
-chown -R odoo:odoo /odoo
+chown -R odoo:odoo /odoo14
 
 cd /root
 echo "-------------------------------odoo service----------------------------"
-wget https://raw.githubusercontent.com/mah007/OdooScript/12.0/odoo.service
-cp odoo.service /etc/systemd/system
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo.service
+cp odoo14.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable odoo
 sudo systemctl start odoo
 echo "----------------------------NGINX-------------------------------"
-wget https://raw.githubusercontent.com/mah007/OdooScript/12.0/nginx.sh
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
 bash nginx.sh
 echo "---------------------------webmin--------------------------------"
 apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
