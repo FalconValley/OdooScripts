@@ -1,5 +1,6 @@
 #!/bin/bash
-# to run the script "sudo /bin/sh odoo_pro.sh"
+# run the script Under root user "
+#$ Sudo su
 #$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/InstallOdoo14.sh
 #$ chmod +x InstallOdoo14.sh
 #$ ./InstallOdoo14.sh
