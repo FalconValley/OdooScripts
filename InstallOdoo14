@@ -4,24 +4,6 @@
 #$ chmod +x InstallOdoo14.sh
 #$ ./InstallOdoo14.sh
 
-################################################################################
-# Script for preparing Odoo production server platform on Ubuntu 14.04, 15.04 and 16.04 (could be used for other version too)
-# Author:     Haitham Wehidy
-# Mobile No:  +201113105777
-# Email:      info@falcon-v.com
-# Website:    http://www.falcon-v.com
-#-------------------------------------------------------------------------------
-# This script will make ur server ready for installing ODOO from 8 to 14
-#-------------------------------------------------------------------------------
-# Make a new file:
-# sudo nano odoo_pro.sh
-# Place this content in it and then make the file executable:
-# sudo chmod +x odoo_pro.sh
-# git clone --depth 1 --branch 10.0 https://www.gitlab.com/mah007/odoo .
-# Execute the script to install Odoo:
-# ./odoo-developing
-################################################################################
- 
 ##fixed parameters
 #instead of odoo use ur user name .EG OE_USER="mahmoud"
 OE_USER="odoo"
@@ -56,8 +38,8 @@ sudo dpkg-reconfigure locales
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
-wget https://raw.githubusercontent.com/mah007/OdooScript/12.0/pgdg.list
-wget https://raw.githubusercontent.com/mah007/OdooScript/14.0/webmin.list
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/pgdg.list
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/webmin.list
 cp pgdg.list /etc/apt/sources.list.d
 cp webmin.list /etc/apt/sources.list.d
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -134,8 +116,7 @@ sudo apt-get install -y libxml2-dev libxslt1-dev zlib1g-dev python3-pip python3-
 sudo -H pip install -r https://raw.githubusercontent.com/odoo/odoo/10.0/requirements.txt
 sudo apt install -y python3-asn1crypto 
 sudo apt install -y python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml
-sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/11.0/requirements.txt
-sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/12.0/requirements.txt
+
 sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/13.0/requirements.txt
 sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/14.0/requirements.txt
 sudo -H pip3 install -r https://raw.githubusercontent.com/it-projects-llc/odoo-saas-tools/12.0/requirements.txt
