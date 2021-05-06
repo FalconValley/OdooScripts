@@ -139,13 +139,13 @@ chown -R odoo:odoo /odoo14
 
 cd /root
 echo "-------------------------------odoo service----------------------------"
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo.service
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/14/odoo.service
 cp odoo.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable odoo
 sudo systemctl start odoo
 echo "----------------------------NGINX-------------------------------"
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/nginx.sh
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/14/nginx.sh
 bash nginx.sh
 echo "---------------------------webmin--------------------------------"
 apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
