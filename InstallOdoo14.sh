@@ -140,7 +140,7 @@ chown -R odoo:odoo /odoo14
 cd /root
 echo "-------------------------------odoo service----------------------------"
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/odoo.service
-cp odoo14.service /etc/systemd/system
+cp odoo.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable odoo
 sudo systemctl start odoo
