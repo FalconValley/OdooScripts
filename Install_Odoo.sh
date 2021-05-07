@@ -152,11 +152,14 @@ touch /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
 
-
-
+echo "---------------------------Dwonload odoo --------------------------------"
+su $OE_USER
 cd /$OE_Folder
 
 sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo 
+
+mkdir extra
+
 cd /
 
 chown -R $OE_USER:$OE_USER /$OE_Folder
