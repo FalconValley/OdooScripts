@@ -1,14 +1,20 @@
 #!/bin/bash
 # run the script Under root user "
 #$ Sudo su
-#$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/InstallOdoo14.sh
-#$ chmod +x InstallOdoo14.sh
-#$ ./InstallOdoo14.sh
+#$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/Install_Odoo.sh
+#$ chmod +x Install_Odoo.sh
+#$ ./Install_Odoo.sh
 
 ##fixed parameters
 #instead of odoo use ur user name .EG OE_USER="mahmoud"
-OE_USER="odoo"
+OE_USER="odoo14"
 OE_BRANCH="14.0"
+OE_Folder="odoo14"
+InstallPostgrees="True"
+Installlocalization="True"
+InstallDependencies="True"
+InstallNGINX="True"
+Installwebmin="True"
 #The default port where this Odoo instance will run under (provided you use the command -c in the terminal)
 #Set to true if you want to install it, false if you don't need it or have it already installed.
 INSTALL_WKHTMLTOPDF="True"
@@ -30,12 +36,16 @@ echo -e "\n---- Update Server ----"
 sudo apt-get update
 sudo apt-get upgrade -y
 apt install -y zip
+
+if [ $Installlocalization = "True" ]; then
 echo "----------------------------localization-------------------------------"
 
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 sudo dpkg-reconfigure locales
+fi
 
+if [ $InstallPostgrees = "True" ]; then
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
@@ -51,7 +61,9 @@ sudo apt-get install postgresql-13 postgresql-server-dev-13 -y
 
 echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
 sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
+fi
 
+if [ $InstallDependencies = "True" ]; then
 #--------------------------------------------------
 # Install Dependencies
 #--------------------------------------------------
@@ -72,7 +84,7 @@ sudo apt-get install node-less -y
 sudo apt-get install python-gevent -y
 apt-get install libwww-perl -y
 #sudo apt install ifupdown -y
-
+fi
 
 #--------------------------------------------------
 # Install Wkhtmltopdf if needed
@@ -108,7 +120,9 @@ else
     echo -e "\n---- every thing is ready ----"
     
 fi	
-  sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+if [ $InstallDependencies = "True" ]; then
+sudo ln -s /usr/bin/nodejs /usr/bin/node
   
 sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev python3-dev
 sudo easy_install greenlet
@@ -122,31 +136,38 @@ sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/13.0/require
 sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/14.0/requirements.txt
 sudo -H pip3 install -r https://raw.githubusercontent.com/it-projects-llc/odoo-saas-tools/12.0/requirements.txt
 sudo -H pip3 install phonenumbers
+fi
+
 echo "---------------------------odoo directory--------------------------------"
-mkdir /odoo14
-mkdir /etc/odoo14
-mkdir /var/log/odoo14
-touch /etc/odoo14/odoo.conf
-touch /var/log/odoo14/odoo-server.log
-chown odoo:odoo /var/log/odoo14/odoo-server.log
-chown odoo:odoo /etc/odoo14/odoo.conf
-cd /odoo14
+mkdir /$OE_Folder
+mkdir /etc/$OE_Folder
+mkdir /var/log/$OE_Folder
+touch /etc/$OE_Folder/$OE_Folder.conf
+touch /var/log/$OE_Folder/$OE_Folder-server.log
+chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
+chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
+cd /$OE_Folder
 
 sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo 
 cd /
 
-chown -R odoo:odoo /odoo14
+chown -R $OE_USER:$OE_USER /$OE_Folder
 
 cd /root
 echo "-------------------------------odoo service----------------------------"
-wget https://raw.githubusercontent.com/FalconValley/OdooScripts/14/odoo.service
-cp odoo.service /etc/systemd/system
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/$OE_Folder.service
+cp $OE_Folder.service /etc/systemd/system
 sudo systemctl daemon-reload
-sudo systemctl enable odoo
-sudo systemctl start odoo
+sudo systemctl enable $OE_Folder
+sudo systemctl start $OE_Folder
+
+
+if [ $InstallNGINX = "True" ]; then
 echo "----------------------------NGINX-------------------------------"
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/14/nginx.sh
 bash nginx.sh
+fi
+if [ $Installwebmin = "True" ]; then
 echo "---------------------------webmin--------------------------------"
 apt-get install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
 wget https://download.webmin.com/jcameron-key.asc
@@ -154,7 +175,7 @@ apt-key add jcameron-key.asc
 apt-get install apt-transport-https -y
 apt-get update
 apt-get install webmin -y
-
+fi
 
 echo "-----------------------------------------------------------"
 echo "Done! The Odoo production platform is ready:"
