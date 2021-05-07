@@ -48,6 +48,7 @@ fi
 if [ $InstallPostgrees = "True" ]; then
 #--------------------------------------------------
 # Install PostgreSQL Server
+
 #--------------------------------------------------
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/pgdg.list
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/webmin.list
@@ -59,9 +60,11 @@ sudo apt-get update
 echo -e "\n---- Install PostgreSQL Server ----"
 sudo apt-get install postgresql-13 postgresql-server-dev-13 -y
 
+
+fi
+
 echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
 sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
-fi
 
 if [ $InstallDependencies = "True" ]; then
 #--------------------------------------------------
