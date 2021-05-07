@@ -188,7 +188,14 @@ apt-get update
 apt-get install webmin -y
 fi
 
-echo "-----------------------------------------------------------"
+echo " -------------------Test odoo ------------------------"
+sudo systemctl status $OE_Folder
+echo " Open Log"
+tail -f /var/log/$OE_Folder/$OE_Folder-server.log
+
+echo " -------------------test ngnix -----------" 
+$ nginx -t
+
 echo "Done! The Odoo production platform is ready:"
 
 echo "Restart restart ur computer and start developing and have fun ;)"
