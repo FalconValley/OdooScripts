@@ -10,14 +10,14 @@
 OE_USER="odoo14"
 OE_BRANCH="14.0"
 OE_Folder="odoo14"
-InstallPostgrees="Truefalse"
-Installlocalization="Truefalse"
-InstallDependencies="Truefalse"
+InstallPostgrees="True"
+Installlocalization="True"
+InstallDependencies="True"
 InstallNGINX="Truefalse"
 Installwebmin="Truefalse"
 #The default port where this Odoo instance will run under (provided you use the command -c in the terminal)
 #Set to true if you want to install it, false if you don't need it or have it already installed.
-INSTALL_WKHTMLTOPDF="Truefalse"
+INSTALL_WKHTMLTOPDF="True"
 
 # Set this to True if you want to install Odoo 9 10 11 12 13 14Enterprise! ( you can use enterprise normaly too ;) )
 IS_ENTERPRISE="Truefalse"
@@ -142,10 +142,15 @@ echo "---------------------------odoo directory--------------------------------"
 mkdir /$OE_Folder
 mkdir /etc/$OE_Folder
 mkdir /var/log/$OE_Folder
-touch /etc/$OE_Folder/$OE_Folder.conf
+#touch /etc/$OE_Folder/$OE_Folder.conf
+wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/$OE_Folder.conf
+cp $OE_Folder.conf /etc/$OE_Folder
 touch /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
+
+
+
 cd /$OE_Folder
 
 sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo 
