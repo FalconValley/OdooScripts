@@ -10,17 +10,17 @@
 OE_USER="odoo14"
 OE_BRANCH="14.0"
 OE_Folder="odoo14"
-InstallPostgrees="True"
-Installlocalization="True"
-InstallDependencies="True"
-InstallNGINX="True"
-Installwebmin="True"
+InstallPostgrees="Truefalse"
+Installlocalization="Truefalse"
+InstallDependencies="Truefalse"
+InstallNGINX="Truefalse"
+Installwebmin="Truefalse"
 #The default port where this Odoo instance will run under (provided you use the command -c in the terminal)
 #Set to true if you want to install it, false if you don't need it or have it already installed.
-INSTALL_WKHTMLTOPDF="True"
+INSTALL_WKHTMLTOPDF="Truefalse"
 
 # Set this to True if you want to install Odoo 9 10 11 12 13 14Enterprise! ( you can use enterprise normaly too ;) )
-IS_ENTERPRISE="True"
+IS_ENTERPRISE="Truefalse"
 
 ##
 ###  WKHTMLTOPDF download links
