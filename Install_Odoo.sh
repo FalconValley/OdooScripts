@@ -1,4 +1,7 @@
 #!/bin/bash
+#Create user frist
+#$sudo adduser odoo
+#$sudo reboot
 # run the script Under root user "
 #$ sudo su
 #$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/Install_Odoo.sh
@@ -149,8 +152,8 @@ mkdir /var/log/$OE_Folder
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/$OE_Folder.conf
 cp $OE_Folder.conf /etc/$OE_Folder
 touch /var/log/$OE_Folder/$OE_Folder-server.log
-chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
-chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
+chown odoo:odoo /var/log/$OE_Folder/$OE_Folder-server.log
+chown odoo:odoo /etc/$OE_Folder/$OE_Folder.conf
 
 echo "---------------------------Dwonload odoo --------------------------------"
 su $OE_USER
