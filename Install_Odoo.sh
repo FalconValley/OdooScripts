@@ -136,7 +136,7 @@ fi
 if [ $Dwonloadodoo = "True" ]; then
 
 echo "---------------------------Dwonload odoo --------------------------------"
- 
+su $OE_USER 
 cd /$OE_Folder
 
 sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo .
