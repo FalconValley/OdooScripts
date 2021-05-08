@@ -13,14 +13,14 @@
 OE_USER="odoo"
 OE_BRANCH="14.0"
 OE_Folder="odoo14"
-InstallPostgrees="True"
-Installlocalization="True"
-InstallDependencies="True"
+InstallPostgrees="Truefff"
+Installlocalization="Truefff"
+InstallDependencies="Truefff"
 InstallNGINX="Truefalse"
 Installwebmin="Truefalse"
 #The default port where this Odoo instance will run under (provided you use the command -c in the terminal)
 #Set to true if you want to install it, false if you don't need it or have it already installed.
-INSTALL_WKHTMLTOPDF="True"
+INSTALL_WKHTMLTOPDF="Truefff"
 
 # Set this to True if you want to install Odoo 9 10 11 12 13 14Enterprise! ( you can use enterprise normaly too ;) )
 IS_ENTERPRISE="Truefalse"
@@ -156,7 +156,7 @@ chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
 
 echo "---------------------------Dwonload odoo --------------------------------"
-su $OE_USER
+ 
 cd /$OE_Folder
 
 sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo 
