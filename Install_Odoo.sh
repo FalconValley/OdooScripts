@@ -130,6 +130,7 @@ cp $OE_Folder.conf /etc/$OE_Folder
 touch /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
+chown -R $OE_USER:$OE_USER /$OE_Folder
 fi
 
 if [ $Dwonloadodoo = "True" ]; then
@@ -144,7 +145,7 @@ mkdir extra
 
 cd /
 
-chown -R $OE_USER:$OE_USER /$OE_Folder
+
 
 fi
 
