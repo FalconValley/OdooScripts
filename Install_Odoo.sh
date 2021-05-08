@@ -10,7 +10,7 @@
 
 ##fixed parameters
 #instead of odoo use ur user name .EG OE_USER="mahmoud"
-OE_USER="odoo14"
+OE_USER="odoo"
 OE_BRANCH="14.0"
 OE_Folder="odoo14"
 InstallPostgrees="True"
@@ -152,8 +152,8 @@ mkdir /var/log/$OE_Folder
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/$OE_Folder.conf
 cp $OE_Folder.conf /etc/$OE_Folder
 touch /var/log/$OE_Folder/$OE_Folder-server.log
-chown odoo:odoo /var/log/$OE_Folder/$OE_Folder-server.log
-chown odoo:odoo /etc/$OE_Folder/$OE_Folder.conf
+chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
+chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
 
 echo "---------------------------Dwonload odoo --------------------------------"
 su $OE_USER
