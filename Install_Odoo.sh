@@ -9,23 +9,21 @@
 #$ ./Install_Odoo.sh
 
 ##fixed parameters
-#instead of odoo use ur user name .EG OE_USER="mahmoud"
+
 OE_USER="odoo"
 OE_BRANCH="14.0"
 OE_Folder="odoo14"
-InstallPostgrees="Truefff"
-Installlocalization="Truefff"
-InstallDependencies="Truefff"
-InstallNGINX="Truefalse"
-Installwebmin="Truefalse"
-#The default port where this Odoo instance will run under (provided you use the command -c in the terminal)
-#Set to true if you want to install it, false if you don't need it or have it already installed.
-INSTALL_WKHTMLTOPDF="Truefff"
+InstallPostgrees="True"
+Installlocalization="True"
+InstallDependencies="True"
+InstallNGINX="True"
+Installwebmin="True"
+odoodirectory="True"
+Dwonloadodoo="True"
+DwonloadodooService="True"
+INSTALL_WKHTMLTOPDF="True"
+IS_ENTERPRISE="false"
 
-# Set this to True if you want to install Odoo 9 10 11 12 13 14Enterprise! ( you can use enterprise normaly too ;) )
-IS_ENTERPRISE="Truefalse"
-
-##
 ###  WKHTMLTOPDF download links
 ## === Ubuntu Trusty x64 & x32 === (for other distributions please replace these two links,
 ## in order to have correct version of wkhtmltox installed, for a danger note refer to 
@@ -144,6 +142,7 @@ sudo -H pip3 install -r https://raw.githubusercontent.com/it-projects-llc/odoo-s
 sudo -H pip3 install phonenumbers
 fi
 
+if [ $odoodirectory = "True" ]; then
 echo "---------------------------odoo directory--------------------------------"
 mkdir /$OE_Folder
 mkdir /etc/$OE_Folder
@@ -154,12 +153,15 @@ cp $OE_Folder.conf /etc/$OE_Folder
 touch /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /var/log/$OE_Folder/$OE_Folder-server.log
 chown $OE_USER:$OE_USER /etc/$OE_Folder/$OE_Folder.conf
+fi
+
+if [ $Dwonloadodoo = "True" ]; then
 
 echo "---------------------------Dwonload odoo --------------------------------"
  
 cd /$OE_Folder
 
-sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo 
+sudo git clone --depth 1 --branch $OE_BRANCH https://www.github.com/odoo/odoo .
 
 mkdir extra
 
@@ -167,6 +169,9 @@ cd /
 
 chown -R $OE_USER:$OE_USER /$OE_Folder
 
+fi
+
+if [ $DwonloadodooService = "True" ]; then
 cd /root
 echo "-------------------------------odoo service----------------------------"
 wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/$OE_Folder.service
@@ -174,7 +179,7 @@ cp $OE_Folder.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable $OE_Folder
 sudo systemctl start $OE_Folder
-
+fi
 
 if [ $InstallNGINX = "True" ]; then
 echo "----------------------------NGINX-------------------------------"
