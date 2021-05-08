@@ -1,9 +1,9 @@
 #!/bin/bash
+# run the script Under root user "
+#$ sudo su
 #Create user frist
 #$sudo adduser odoo
 #$sudo reboot
-# run the script Under root user "
-#$ sudo su
 #$ wget https://raw.githubusercontent.com/FalconValley/OdooScripts/13/Install_Odoo.sh
 #$ chmod +x Install_Odoo.sh
 #$ ./Install_Odoo.sh
